@@ -1,11 +1,7 @@
-tour_d_argent = Restaurant.new({
-  name: "La Tour d'Argent",
-  address: "15 Quai de la Tournelle, 75005 Paris"
-})
-tour_d_argent.save
+require_relative '../models/restaurant'
+require 'faker'
 
-chez_gladines = Restaurant.new({
-  name: "Chez Gladines",
-  address: "30 Rue des cinq Diamants, 75013 Paris"
-})
-chez_gladines.save
+10.times do
+	r = Restaurant.new(name: Faker::Company.name, address: Faker::Address.street_address, rating: rand(1..5), logo_url: Faker::Company.logo)
+	r.save
+end
